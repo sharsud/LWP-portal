@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Training - Index Page</title>
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "password") {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Selenium Training - Index Page</h1>
+
+    <div id="login-form">
+        <h3>Login</h3>
+        <label for="username">Username:</label>
+        <input type="text" id="username"><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br><br>
+        
+        <button onclick="validateLogin()">Login</button>
+    </div>
+
+    <div id="content" style="display: none;">
+        <h2>Welcome to Selenium Training!</h2>
+        <p>Select a topic to explore:</p>
+        
+        <ul>
+            <li><a href="basic_interaction.html" target="_blank">Basic Interaction (Buttons, Input Fields)</a></li>
+            <li><a href="dropdown.html" target="_blank">Dropdown Interaction</a></li>
+            <li><a href="checkbox_radio.html" target="_blank">Checkboxes and Radio Buttons</a></li>
+            <li><a href="alerts.html" target="_blank">Alerts and Popups</a></li>
+        </ul>
+    </div>
+</body>
+</html>
