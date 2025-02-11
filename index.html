@@ -50,8 +50,8 @@
       $('#topic tbody').append(`
         <tr>
           <td>${index + 1}</td>
-          <td>${file.replace('.html', '')}</td> <!-- Removing '.html' extension from the file name -->
-          <td><a href="/Pages/${file}" target="_blank">View</a></td>
+          <td>${file}</td> <!-- Removing '.html' extension from the file name -->
+          <td><a href="/Pages/${file}.html" target="_blank">View</a></td>
         </tr>
       `);
     });
