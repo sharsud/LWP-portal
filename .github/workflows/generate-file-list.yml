@@ -43,9 +43,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the token stored in secrets
         run: |
           if [ -f "files-list.json" ]; then
-          git add files-list.json
-          git commit -m "Update file list"
-          git push
-        else
-          echo "No changes detected, skipping commit"
+            git add scripts/files-list.json
+            git commit -m "Update file list"
+            git push
+          else
+            echo "No changes detected, skipping commit"
     
