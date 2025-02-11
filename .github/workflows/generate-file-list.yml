@@ -3,45 +3,45 @@ name: Generate File List
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
 
 jobs:
   generate-files-list:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
-      # Checkout repository
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Set up Git identity
+      # Step 2: Set up Git identity
       - name: Set up Git identity
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      # Debug: Check contents of Pages directory
+      # Step 3: Check contents of the Pages directory for debugging
       - name: Check contents of Pages directory
         run: |
-          ls -al ./Pages
+          ls -al ./Pages  # Check if the Pages directory exists and contains HTML files
 
-      # Generate the file list
+      # Step 4: Generate the file list (somedir)
       - name: Generate file list (somedir)
         run: |
-          ls ./Pages/*.html > files-list.json
-          cat files-list.json
+          ls ./Pages/*.html > files-list.json  # List all .html files in Pages directory
+          cat files-list.json  # Print the contents of files-list.json for debugging
 
-      # Set up authentication for pushing changes
+      # Step 5: Set up HTTPS authentication using GitHub Actions token
       - name: Set up authentication
         run: |
           git config --global url."https://github.com/".insteadOf "git@github.com:"
           git remote set-url origin https://github.com/${{ github.repository }}
 
-      # Commit and push the generated file list
+      # Step 6: Commit and push the generated file list
       - name: Commit and push file list
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the token stored in secrets
         run: |
           git add files-list.json
           git commit -m "Update file list"
-          git push https://github.com/${{ github.repository }} HEAD:main
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:main
