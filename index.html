@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Psudo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+		<a href="index.html"><img src="img/logo.jpg" alt="Profile Image" class="profile-image"></a>
+        <div class="text-content">
+            <h1>Learn with Psudo</h1>
+            <p>Your guide to mastering Selenium automation</p>
+        </div>
+        
+    </header>
+    <main class="container">
+        <section class="intro">
+            <h2>What is Selenium?</h2>
+            <p>Selenium is an open-source framework for automating web applications. It supports multiple browsers and programming languages.</p>
+        </section>
+        
+        <section class="drag-drop">
+            <h2>Selenium Topics</h2>
+            
+			<h1>A Fancy Table</h1>
+
+			<table id="topic">
+			  <thead>
+				<tr>
+					<th>Sl. No.</th>
+					<th>Page Name</th>
+					<th>Link</th>
+				</tr>
+				</thead>
+				<tbody>
+						<!-- Table rows will be populated here by JavaScript -->
+				</tbody>
+			</table>
+			<script>
+				// Make an AJAX request to get the list of files
+				$.getJSON('/Pages', function(data) {
+				  console.log(data); // Example: ["doc1.jpg", "doc2.jpg", "doc3.jpg"]
+
+				  // Dynamically populate the table
+				  data.forEach((file, index) => {
+					$('#file-table tbody').append(`
+					  <tr>
+						<td>${index + 1}</td>
+						<td>${file}</td>
+						<td><a href="/pages/${file}" target="_blank">View</a></td>
+					  </tr>
+					`);
+				  });
+				});
+			  </script>
+        </section>
+    </main>
+
+</body>
+</html>
