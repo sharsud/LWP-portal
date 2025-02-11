@@ -1,8 +1,8 @@
-./Pages/alerts.html
-./Pages/basic_auth.html
-./Pages/drag_and_drop.html
-./Pages/dropdown.html
-./Pages/homepage.html
-./Pages/iframes.html
-./Pages/login.html
-./Pages/upload.html
+alerts
+basic_auth
+drag_and_drop
+dropdown
+homepage
+iframes
+login
+upload
