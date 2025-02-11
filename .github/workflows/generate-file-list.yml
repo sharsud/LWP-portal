@@ -42,7 +42,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the token stored in secrets
         run: |
-          if [ -f "files-list.json" ]; then
+          if [ -f "scripts/files-list.json" ]; then
             git add scripts/files-list.json
             git commit -m "Update file list"
             git push
