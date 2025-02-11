@@ -61,9 +61,10 @@
         </tr>
       `);
     });
-  }).fail(function() {
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Error loading JSON:', textStatus, errorThrown); // Log the error if it fails
     alert("Failed to load the file list. Please check if the 'files-list.json' path is correct.");
-  });
+});
 </script>
         </section>
     </main>
