@@ -12,26 +12,29 @@ jobs:
     runs-on: ubuntu-latest  # GitHub Actions environment
     
     steps:
-        # Step 1: Checkout the repository
-        - name: Checkout repository
+      # Step 1: Checkout the repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-        # Step 2: Set up Git identity
-        - name: Set up Git identity
+      # Step 2: Set up Git identity
+      - name: Set up Git identity
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-        # Step 3: Generate the file list  
+      # Step 3: Debug - Check contents of Pages directory
+      - name: Check contents of Pages directory
+        run: |
+          ls -al ./Pages  # List files in the Pages directory
+
+      # Step 4: Generate the file list (if files exist)
       - name: Generate file list (somedir)
         run: |
-          # Create a file list of all HTML files in the /somedir directory
+          # List all HTML files in the Pages directory and store them in files-list.json
           ls ./Pages/*.html > files-list.json
+          cat files-list.json  # Display the content of the files-list.json for debugging
           
           # If the file list has changed, add and commit it
           git add files-list.json
           git commit -m "Update file list"
           git push
-          
-      # Step 3: Push the changes back to the repository
-      # This step ensures the generated files-list.json is committed and pushed back to the repository
