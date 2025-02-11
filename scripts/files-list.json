@@ -1,10 +1,17 @@
 [
 "alerts"
+,
 "basic_auth"
+,
 "drag_and_drop"
+,
 "dropdown"
+,
 "homepage"
+,
 "iframes"
+,
 "login"
+,
 "upload"
 ]
