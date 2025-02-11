@@ -28,14 +28,18 @@ jobs:
       # Step 4: Generate the file list (somedir)
       - name: Generate file list (somedir)
         run: |
-          run: |
-            echo "[" > ./scripts/files-list.json
-            for file in ./Pages/*.html; do
-              basename "$file" .html | jq -R '.' >> ./scripts/files-list.json
-            done
-            echo "]" >> ./scripts/files-list.json # List all .html files in Pages directory
-            cat ./scripts/files-list.json  # Print the contents of files-list.json for debugging
-
+          echo "[" > ./scripts/files-list.json
+          first=true
+          for file in ./Pages/*.html; do
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo "," >> ./scripts/files-list.json
+            fi
+            basename "$file" .html | jq -R '.' >> ./scripts/files-list.json
+          done
+          echo "]" >> ./scripts/files-list.json  # Close the JSON array
+          cat ./scripts/files-list.json  # Print the contents of files-list.json for debugging
       # Step 5: Set up HTTPS authentication using GitHub Actions token
       - name: Set up authentication
         run: |
