@@ -1,0 +1,31 @@
+name: Generate File List
+
+# Trigger action on push to the main branch (you can change the branch name as needed)
+on:
+  push:
+    branches:
+      - main  # Trigger when pushing to the main branch
+
+# Jobs define the tasks to be performed in this workflow
+jobs:
+  generate-files-list:
+    runs-on: ubuntu-latest  # GitHub Actions environment
+    
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Generate the file list
+      - name: Generate file list (somedir)
+        run: |
+          # Create a file list of all HTML files in the /somedir directory
+          ls ./somedir/*.html > files-list.json
+          
+          # If the file list has changed, add and commit it
+          git add files-list.json
+          git commit -m "Update file list"
+          git push
+          
+      # Step 3: Push the changes back to the repository
+      # This step ensures the generated files-list.json is committed and pushed back to the repository
