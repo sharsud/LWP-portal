@@ -20,7 +20,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      # Step 3: Check contents of the Pages directory for debugging
+      # Step 3: Check contents of Pages directory for debugging
       - name: Check contents of Pages directory
         run: |
           ls -al ./Pages  # Check if the Pages directory exists and contains HTML files
