@@ -20,7 +20,7 @@ jobs:
       - name: Generate file list (somedir)
         run: |
           # Create a file list of all HTML files in the /somedir directory
-          ls ./somedir/*.html > files-list.json
+          ls ./Pages/*.html > files-list.json
           
           # If the file list has changed, add and commit it
           git add files-list.json
