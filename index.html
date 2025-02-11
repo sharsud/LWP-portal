@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <script>
+    // This function will trigger the alert when the page loads
+    window.onload = function() {
+      alert("Page has loaded!");
+    }
+  </script>
 </head>
 <body>
     <header>
@@ -41,10 +47,8 @@
 				</tbody>
 			</table>
 			<script>
-var jsonFilePath = 'files-list.json'; // Change this if your file is located elsewhere
-alert(jsonFilePath)
-    // Make an AJAX request to get the list of files from files-list.json
-    $.getJSON(jsonFilePath, function(data) { // Ensure the correct path here
+  // Update the path to the JSON file, if necessary
+  $.getJSON('/files-list.json', function(data) { // Ensure the correct path here
     console.log(data); // Example: ["doc1.html", "doc2.html", "doc3.html"]
 
     // Dynamically populate the table with the file list
