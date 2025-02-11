@@ -1,40 +1,47 @@
 name: Generate File List
 
-# Trigger action on push to the main branch (you can change the branch name as needed)
 on:
   push:
     branches:
-      - main  # Trigger when pushing to the main branch
+      - main
 
-# Jobs define the tasks to be performed in this workflow
 jobs:
   generate-files-list:
-    runs-on: ubuntu-latest  # GitHub Actions environment
-    
+    runs-on: ubuntu-latest
+
     steps:
-      # Step 1: Checkout the repository
+      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Set up Git identity
+      # Set up Git identity
       - name: Set up Git identity
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      # Step 3: Debug - Check contents of Pages directory
+      # Debug: Check contents of Pages directory
       - name: Check contents of Pages directory
         run: |
-          ls -al ./Pages  # List files in the Pages directory
+          ls -al ./Pages
 
-      # Step 4: Generate the file list (if files exist)
+      # Generate the file list
       - name: Generate file list (somedir)
         run: |
-          # List all HTML files in the Pages directory and store them in files-list.json
           ls ./Pages/*.html > files-list.json
-          cat files-list.json  # Display the content of the files-list.json for debugging
-          
-          # If the file list has changed, add and commit it
+          cat files-list.json
+
+      # Set up authentication for pushing changes
+      - name: Set up authentication
+        run: |
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git remote set-url origin https://github.com/${{ github.repository }}
+
+      # Commit and push the generated file list
+      - name: Commit and push file list
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
           git add files-list.json
           git commit -m "Update file list"
-          git push
+          git push https://github.com/${{ github.repository }} HEAD:main
