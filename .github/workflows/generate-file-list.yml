@@ -28,7 +28,7 @@ jobs:
       # Step 4: Generate the file list (somedir)
       - name: Generate file list (somedir)
         run: |
-          ls ./Pages/*.html > ./scripts/files-list.json  # List all .html files in Pages directory
+          for file in ./Pages/*.html; do basename "$file" .html; done > ./scripts/files-list.json  # List all .html files in Pages directory
           cat ./scripts/files-list.json  # Print the contents of files-list.json for debugging
 
       # Step 5: Set up HTTPS authentication using GitHub Actions token
