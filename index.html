@@ -39,24 +39,27 @@
 				</tbody>
 			</table>
 			<script>
-				  // Update the path to the JSON file, if necessary
-				  $.getJSON('./scripts/files-list.json', function(data) { // Ensure the correct path here
-					console.log(data); 
-
+				$(document).ready(function() {
+				// Clear the table body to ensure no duplicate rows
+				$('#topic tbody').empty();
+				
+				$.getJSON('./scripts/files-list.json', function(data) {
 					// Dynamically populate the table with the file list
-					data.forEach((file, index) => { console.log(file);
-					  $('#topic tbody').append(`
-						<tr>
-						  <td>${index + 1}</td>
-						  <td>${file}</td> 
-						  <td><a href="./Pages/${file}.html" target="_self">View</a></td>
-						</tr>
-					  `);
+					data.forEach((file, index) => {
+						$('#topic tbody').append(`
+							<tr>
+								<td>${index + 1}</td>
+								<td>${file}</td>
+								<td><a href="./Pages/${file}.html" target="_self">View</a></td>
+							</tr>
+						`);
 					});
-				  }).fail(function(jqXHR, textStatus, errorThrown) {
-					console.error('Error loading JSON:', textStatus, errorThrown); // Log the error if it fails
+				}).fail(function(jqXHR, textStatus, errorThrown) {
+					console.error('Error loading JSON:', textStatus, errorThrown);
 					alert("Failed to load the file list. Please check if the 'files-list.json' path is correct.");
 				});
+			});
+
 			</script>
         </section>
     </main>
