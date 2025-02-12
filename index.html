@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn with Psudo</title>
     <link rel="stylesheet" href="styles.css">
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
-		<a href="index.html"><img src="img/logo.jpg" alt="Profile Image" class="profile-image"></a>
+        <a href="index.html"><img src="img/logo.jpg" alt="Profile Image" class="profile-image"></a>
         <div class="text-content">
             <h1>Learn with Psudo</h1>
             <p>Your guide to mastering Selenium automation</p>
         </div>
-        
     </header>
     <main class="container">
         <section class="intro">
@@ -26,41 +24,46 @@
         <section class="drag-drop">
             <h2>Selenium Topics</h2>
             
-			<h1>A Fancy Table</h1>
+            <h1>A Fancy Table</h1>
 
-			<table id="topic">
-				<tr>
-					<th>Sl. No.</th>
-					<th>Page Name</th>
-					<th>Link</th>
-				</tr>
-				<tbody>
-						<!-- Table rows will be populated here by JavaScript -->
-				</tbody>
-			</table>
-			<script>
-				$(document).ready(function() {
-				// Clear the table body to ensure no duplicate rows
-				$('#topic tbody').empty();
-				
-				$.getJSON('./scripts/files-list.json', function(data) {
-					// Dynamically populate the table with the file list
-					data.forEach((file, index) => {
-						$('#topic tbody').append(`
-							<tr>
-								<td>${index + 1}</td>
-								<td>${file}</td>
-								<td><a href="./Pages/${file}.html" target="_self">View</a></td>
-							</tr>
-						`);
-					});
-				}).fail(function(jqXHR, textStatus, errorThrown) {
-					console.error('Error loading JSON:', textStatus, errorThrown);
-					alert("Failed to load the file list. Please check if the 'files-list.json' path is correct.");
-				});
-			});
-
-			</script>
+            <table id="topic">
+                <tr>
+                    <th>Sl. No.</th>
+                    <th>Page Name</th>
+                    <th>Link</th>
+                </tr>
+                <tbody>
+                    <!-- Table rows will be populated here by JavaScript -->
+                </tbody>
+            </table>
+            <script>
+                $(document).ready(function() {
+                    console.log('Document ready event triggered'); // Log to check when the event is triggered
+                    
+                    // Clear the table body to ensure no duplicate rows
+                    $('#topic tbody').empty();
+                    
+                    $.ajaxSetup({ cache: false }); // Disable cache to avoid potential caching issues
+                    
+                    $.getJSON('./scripts/files-list.json', function(data) {
+                        console.log('JSON Data loaded'); // Log when data is loaded
+                        
+                        // Dynamically populate the table with the file list
+                        data.forEach((file, index) => {
+                            $('#topic tbody').append(`
+                                <tr>
+                                    <td>${index + 1}</td>
+                                    <td>${file}</td>
+                                    <td><a href="./Pages/${file}.html" target="_self">View</a></td>
+                                </tr>
+                            `);
+                        });
+                    }).fail(function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error loading JSON:', textStatus, errorThrown);
+                        alert("Failed to load the file list. Please check if the 'files-list.json' path is correct.");
+                    });
+                });
+            </script>
         </section>
     </main>
 
