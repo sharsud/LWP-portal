@@ -46,8 +46,8 @@
                     $.ajaxSetup({ cache: false }); // Disable cache to avoid potential caching issues
                     
                     $.getJSON('./scripts/files-list.json', function(data) {
-                        console.log('JSON Data loaded'); // Log when data is loaded
-                        
+                        console.log('JSON Data loaded, with file contents'); // Log when data is loaded
+                        console.log(data)
                         // Dynamically populate the table with the file list
                         data.forEach((file, index) => {
                             $('#topic tbody').append(`
