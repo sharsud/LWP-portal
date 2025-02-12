@@ -8,13 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="img/logo.jpg" alt="Profile Image" class="profile-image"></a>
-        <div class="text-content">
-            <h1>Learn with Psudo</h1>
-            <p>Your guide to mastering Selenium automation</p>
-        </div>
-    </header>
+    <div id="header-container"></div> <!-- Placeholder for header -->
     <main class="container">
         <section class="intro">
             <h2>What is Selenium?</h2>
@@ -39,7 +33,18 @@
             <script>
                 $(document).ready(function() {
                     console.log('Document ready event triggered'); // Log to check when the event is triggered
-                    
+                    $('#header-container').load('./pages/header.htm', function(response, status, xhr) {
+						if (status == 'error') {
+							console.log('Error loading header: ' + xhr.status + ' ' + xhr.statusText);
+						}
+					});
+
+					// Load the footer
+					$('#footer-container').load('./Pages/footer.htm', function(response, status, xhr) {
+						if (status == 'error') {
+							console.log('Error loading footer: ' + xhr.status + ' ' + xhr.statusText);
+						}
+					});
                     // Clear the table body to ensure no duplicate rows
                     $('#tbody').empty();
                     
@@ -69,14 +74,5 @@
 
 </body>
  <!-- Footer Section -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Learn with Psudo. All rights reserved.</p>
-            <div class="social-media">
-                <a href="#">Facebook</a> | 
-                <a href="#">Twitter</a> | 
-                <a href="#">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-container"></div> <!-- Placeholder for footer -->
 </html>
