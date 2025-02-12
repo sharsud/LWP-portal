@@ -41,14 +41,14 @@
 			<script>
 				  // Update the path to the JSON file, if necessary
 				  $.getJSON('./scripts/files-list.json', function(data) { // Ensure the correct path here
-					console.log(data); // Example: ["doc1.html", "doc2.html", "doc3.html"]
+					console.log(data); 
 
 					// Dynamically populate the table with the file list
-					data.forEach((file, index) => {
+					data.forEach((file, index) => { console.log(file);
 					  $('#topic tbody').append(`
 						<tr>
 						  <td>${index + 1}</td>
-						  <td>${file}</td> <!-- Removing '.html' extension from the file name -->
+						  <td>${file}</td> 
 						  <td><a href="./Pages/${file}.html" target="_self">View</a></td>
 						</tr>
 					  `);
