@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #f4f4f4; /* Light background */
     color: #333; /* Dark text */
-	margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 header {
@@ -49,9 +49,11 @@ header {
 }
 
 /* Section Headers */
+
+
 h2 {
     color: #007bff; /* Blue for section headers */
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 20px;
     padding: 10px;
     background-color: #1b1f3a; /* Dark blue background */
@@ -59,6 +61,74 @@ h2 {
     text-align: center;
     text-transform: uppercase;
     color: #fff;
+}
+
+
+
+/* Login Form Styling */
+#login-container {
+    background-color: #e5e5e5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#login-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#login-container input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#login-container label {
+    font-size: 16px;
+    font-weight: bold;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+#login-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#login-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Message for Login Success/Failure */
+#login-message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#login-message.success {
+    color: green;
+}
+
+#login-message.error {
+    color: red;
 }
 
 /* Table Styling */
@@ -115,6 +185,7 @@ tr.highlight {
     color: white;
     transition: background-color 0.3s ease;
 }
+
 /* Updated Footer Styling */
 footer {
     background-color: #1b1f3a;
@@ -166,5 +237,161 @@ footer .social-media a:hover {
     }
     .text-content p {
         font-size: 14px;
+    }
+}
+
+/* Text Styling for Topics */
+.topic-title {
+    color: #1b1f3a; /* Dark blue for the topic title */
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.topic-description {
+    color: #333; /* Dark text for description */
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.topic-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.topic-list li {
+    font-size: 16px;
+    color: #4caf50; /* Green for list items */
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.topic-list li::before {
+    content: '\2022'; /* Bullet point */
+    color: #ff9800; /* Orange bullet point */
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.topic-highlight {
+    background-color: #f9f9f9; /* Light background for highlighted text */
+    border-left: 5px solid #007bff; /* Blue border on the left */
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #1b1f3a; /* Dark blue text */
+}
+
+.topic-note {
+    background-color: #ffeb3b; /* Yellow background for notes */
+    color: #1b1f3a; /* Dark text */
+    padding: 10px;
+    font-style: italic;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.topic-action {
+    background-color: #007bff; /* Blue background for actions */
+    color: white; /* White text */
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.topic-action:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Default Paragraph Styling */
+p {
+    font-size: 16px; /* Set a readable font size */
+    line-height: 1.6; /* Increase line height for readability */
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Add space after the paragraph */
+    text-align: justify; /* Justify text for a neat look */
+}
+
+/* Styled Paragraph for Emphasis */
+p.emphasized {
+    font-size: 18px; /* Slightly larger text */
+    color: #007bff; /* Blue color for emphasis */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px;
+}
+
+/* Paragraph with a Background */
+p.background {
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 15px; /* Add padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    color: #1b1f3a; /* Dark text for contrast */
+}
+
+/* Paragraph with a Border */
+p.bordered {
+    border: 2px solid #007bff; /* Blue border */
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Paragraph for Notes or Important Information */
+p.note {
+    background-color: #fff3cd; /* Light yellow background for notes */
+    color: #856404; /* Dark yellow text */
+    font-style: italic; /* Italicized text */
+    padding: 12px;
+    border-left: 5px solid #ffeeba; /* Light border on the left */
+    margin-bottom: 20px;
+}
+
+/* Paragraph for Quotes */
+p.quote {
+    font-size: 18px;
+    font-style: italic; /* Italicized text for quotes */
+    color: #555; /* Slightly lighter text color */
+    margin-bottom: 25px;
+    padding-left: 20px; /* Indentation for the quote */
+    border-left: 3px solid #007bff; /* Blue left border */
+}
+
+/* Paragraph for Call to Action (CTA) */
+p.cta {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* White text */
+    background-color: #007bff; /* Blue background */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Design for Paragraphs */
+@media (max-width: 768px) {
+    p {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    p.cta {
+        font-size: 16px; /* Ensure CTA text is legible on smaller screens */
     }
 }

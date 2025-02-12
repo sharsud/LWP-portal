@@ -1,45 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Psudo</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="header-container"></div> <!-- Placeholder for header -->
+    <main class="container">
+        <section class="intro">
+            <h2>Login page</h2>
+            <p class="background">
+                To use this page, enter the username and password. In this example, the default credentials are: 
+                <br><strong>Username: admin</strong> and <strong>Password: admin</strong>. 
+                This login functionality can be extended to a backend server for authentication in real-world applications.
+            </p>
+			
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>Login to Learn with Psudo</h1>
-        </header>
-        <main>
-            <form id="loginForm">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
+        </section>
+        
+        <section class="drag-drop">
+            <h2>Selenium Topics</h2>
+            
+            <h6 class="topic-highlight">Login, Buttons, Input, label verification</h6>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-
-                <input type="submit" value="Login">
-            </form>
-            <p>Use <strong>admin</strong> as the username and <strong>password</strong> as the password to login.</p>
-
+            <!-- Login Form -->
+            <div id="login-container">
+				
+                <form id="login-form">
+					<h2>login</h2>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br><br>
+                    <button type="submit">Login</button>
+                </form>
+                <!-- Message for login success/failure -->
+                <div id="login-message"></div>
+            </div>
+            
             <script>
-                document.getElementById('loginForm').addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const username = document.getElementById('username').value;
-                    const password = document.getElementById('password').value;
-                    
-                    if (username === 'admin' && password === 'password') {
-                        window.location.href = 'homepage.html';
-                    } else {
-                        alert('Invalid credentials. Please try again.');
-                    }
+                $(document).ready(function() {
+                    console.log('Document ready event triggered');
+                    $('#header-container').load('./Pages/header.htm', function(response, status, xhr) {
+                        if (status == 'error') {
+                            console.log('Error loading header: ' + xhr.status + ' ' + xhr.statusText);
+                        }
+                    });
+
+                    // Load the footer
+                    $('#footer-container').load('./Pages/footer.htm', function(response, status, xhr) {
+                        if (status == 'error') {
+                            console.log('Error loading footer: ' + xhr.status + ' ' + xhr.statusText);
+                        }
+                    });
+
+                    // Handle form submission
+                    $('#login-form').submit(function(e) {
+                        e.preventDefault();  // Prevent the form from submitting normally
+
+                        // Get the entered values
+                        const username = $('#username').val();
+                        const password = $('#password').val();
+
+                        // Check the credentials
+                        if (username === 'admin' && password === 'admin') {
+                            $('#login-message').text('Login successful!').css('color', 'green');
+                        } else {
+                            $('#login-message').text('Invalid username or password. Please try again.').css('color', 'red');
+                        }
+                    });
                 });
             </script>
-        </main>
-        <footer>
-            <p>&copy; 2025 Learn with Psudo. All rights reserved.</p>
-        </footer>
-    </body>
-    </html>
-    
+        </section>
+    </main>
+
+    <div id="footer-container"></div> <!-- Placeholder for footer -->
+</body>
+</html>

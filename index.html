@@ -12,13 +12,16 @@
     <main class="container">
         <section class="intro">
             <h2>What is Selenium?</h2>
-            <p>Selenium is an open-source framework for automating web applications. It supports multiple browsers and programming languages.</p>
+            <p class="background">
+  <b>Selenium</b> is an open-source suite of tools used for automating <i>web browsers</i>, primarily for testing <u>web applications</u>. It allows users to write scripts in various programming languages like <b>Java</b>, <i>Python</i>, and <b>C#</b> to simulate user actions such as clicking buttons, filling out forms, and navigating between pages. Selenium supports multiple browsers including <i>Chrome</i>, <u>Firefox</u>, <i>Safari</i>, and <b>Edge</b>, making it ideal for <u>cross-browser testing</u>. Its core component, <b>WebDriver</b>, directly interacts with browsers to verify <u>web application behavior</u>. Selenium also includes tools like <i>Selenium IDE</i> for record-and-playback tests and <b>Selenium Grid</b> for parallel test execution. It is widely used for <u>automated testing</u>, <i>end-to-end testing</i>, and <b>web scraping</b>, ensuring applications function correctly across various platforms and browsers.
+</p>
+
         </section>
         
         <section class="drag-drop">
             <h2>Selenium Topics</h2>
             
-            <h1>A Fancy Table</h1>
+            <h6 class="topic-highlight">Click on the topic to navigate</h6>
 
             <table id="topic">
                 <tr>
@@ -33,7 +36,7 @@
             <script>
                 $(document).ready(function() {
                     console.log('Document ready event triggered'); // Log to check when the event is triggered
-                    $('#header-container').load('./pages/header.htm', function(response, status, xhr) {
+                    $('#header-container').load('./Pages/header.htm', function(response, status, xhr) {
 						if (status == 'error') {
 							console.log('Error loading header: ' + xhr.status + ' ' + xhr.statusText);
 						}
