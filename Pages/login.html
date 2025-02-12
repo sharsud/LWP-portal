@@ -46,14 +46,14 @@
             <script>
                 $(document).ready(function() {
                     console.log('Document ready event triggered');
-                    $('#header-container').load('./Pages/header.htm', function(response, status, xhr) {
+                    $('#header-container').load('header.htm', function(response, status, xhr) {
                         if (status == 'error') {
                             console.log('Error loading header: ' + xhr.status + ' ' + xhr.statusText);
                         }
                     });
 
                     // Load the footer
-                    $('#footer-container').load('./Pages/footer.htm', function(response, status, xhr) {
+                    $('#footer-container').load('footer.htm', function(response, status, xhr) {
                         if (status == 'error') {
                             console.log('Error loading footer: ' + xhr.status + ' ' + xhr.statusText);
                         }
