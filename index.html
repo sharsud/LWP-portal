@@ -41,16 +41,16 @@
                     console.log('Document ready event triggered'); // Log to check when the event is triggered
                     
                     // Clear the table body to ensure no duplicate rows
-                    $('#topic tbody').empty();
+                    $('#tbody').empty();
                     
                     $.ajaxSetup({ cache: false }); // Disable cache to avoid potential caching issues
                     
                     $.getJSON('./scripts/files-list.json', function(data) {
                         console.log('JSON Data loaded, with file contents'); // Log when data is loaded
-                        console.log(data)
+                        console.log(data);
                         // Dynamically populate the table with the file list
-                        data.forEach((file, index) => {
-                            $('#topic tbody').append(`
+                        data.forEach((file, index) => { console.log(file), console.log(index);
+                            $('#tbody').append(`
                                 <tr>
                                     <td>${index + 1}</td>
                                     <td>${file}</td>
