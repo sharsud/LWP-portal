@@ -183,3 +183,243 @@ h2 {
     border-color: #007bff;
     outline: none;
 }
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    color: #333;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center; /* Center-aligned text in table cells */
+    font-size: 16px;
+}
+
+table th {
+    background-color: #1b1f3a; /* Dark blue header background */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light alternate rows */
+}
+
+table tr:nth-child(odd) {
+    background-color: #e5e5e5; /* Slightly darker alternate rows */
+}
+
+table tr:hover {
+    background-color: #007bff; /* Blue hover effect */
+    color: white; /* White text on hover */
+}
+
+table td a {
+    color: #ff9800; /* Orange link text */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Highlight row effect */
+tr.highlight {
+    background-color: #ff9800;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Updated Footer Styling */
+footer {
+    background-color: #1b1f3a;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Shadow effect to separate footer */
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: #ff9800;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+	
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    color: #333;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center; /* Center-aligned text in table cells */
+    font-size: 16px;
+}
+
+table th {
+    background-color: #1b1f3a; /* Dark blue header background */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light alternate rows */
+}
+
+table tr:nth-child(odd) {
+    background-color: #e5e5e5; /* Slightly darker alternate rows */
+}
+
+table tr:hover {
+    background-color: #007bff; /* Blue hover effect */
+    color: white; /* White text on hover */
+}
+
+table td a {
+    color: #ff9800; /* Orange link text */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Highlight row effect */
+tr.highlight {
+    background-color: #ff9800;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Updated Footer Styling */
+footer {
+    background-color: #1b1f3a;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Shadow effect to separate footer */
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: #ff9800;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}
+	
+/* Paragraph with a Background */
+p.background {
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 15px; /* Add padding around the text */
+    border-radius: 5px; /* Rounded corners */
+color: #1b1f3a; /* Dark text for contrast */}
+	
+/* Paragraph with a Border */
+p.bordered {
+border: 2px solid #007bff; /* Blue border */}
+
+
+/* Paragraph for Notes or Important Information */
+p.note {
+    background-color: #fff3cd; /* Light yellow background for notes */
+    color: #856404; /* Dark yellow text */
+    font-style: italic; /* Italicized text */
+    padding: 12px;
+    border-left: 5px solid #ffeeba; /* Light border on the left */
+    margin-bottom: 20px;
+}
+
+/* Paragraph for Quotes */
+p.quote {
+    font-size: 18px;
+    font-style: italic; /* Italicized text for quotes */
+    color: #555; /* Slightly lighter text color */
+    margin-bottom: 25px;
+    padding-left: 20px; /* Indentation for the quote */
+    border-left: 3px solid #007bff; /* Blue left border */
+}
+
+/* Paragraph for Call to Action (CTA) */
+p.cta {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* White text */
+    background-color: #007bff; /* Blue background */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Design for Paragraphs */
+@media (max-width: 768px) {
+    p {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    p.cta {
+        font-size: 16px; /* Ensure CTA text is legible on smaller screens */
+    }
