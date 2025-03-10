@@ -49,8 +49,6 @@ header {
 }
 
 /* Section Headers */
-
-
 h2 {
     color: #007bff; /* Blue for section headers */
     font-size: 28px;
@@ -63,45 +61,72 @@ h2 {
     color: #fff;
 }
 
+/* Tab Styles */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
+.tab-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.tab-link.active {
+    background-color: #0056b3;
+}
+
+.tab-link:hover {
+    background-color: #0056b3;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+}
 
 /* Login Form Styling */
-#login-container {
+#login-tab, #register-tab {
     background-color: #e5e5e5;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 500px; /* Increased width for both forms */
     margin: 0 auto;
-    text-align: center;
 }
 
-#login-container form {
+#login-form, #register-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-#login-container input {
+#login-form input, #register-form input, #register-form select, #register-form textarea {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-#login-container input:focus {
+#login-form input:focus, #register-form input:focus, #register-form select:focus, #register-form textarea:focus {
     border-color: #007bff;
     outline: none;
 }
 
-#login-container label {
+#login-form label, #register-form label {
     font-size: 16px;
     font-weight: bold;
-	text-transform: uppercase;
-	text-align: left;
+    text-transform: uppercase;
+    text-align: left;
 }
 
-#login-container button {
+#login-form button, #register-form button {
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -112,11 +137,11 @@ h2 {
     transition: background-color 0.3s;
 }
 
-#login-container button:hover {
+#login-form button:hover, #register-form button:hover {
     background-color: #0056b3;
 }
 
-/* Message for Login Success/Failure */
+/* Links */
 #login-message {
     margin-top: 20px;
     font-size: 16px;
@@ -131,267 +156,30 @@ h2 {
     color: red;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    color: #333;
+/* Additional Register Form Styling */
+#register-form input[type="radio"], 
+#register-form input[type="checkbox"] {
+    margin: 0 5px;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+#register-form input[type="radio"]:checked, 
+#register-form input[type="checkbox"]:checked {
+    background-color: #007bff;
 }
 
-table th, table td {
-    padding: 12px;
-    text-align: center; /* Center-aligned text in table cells */
-    font-size: 16px;
+#register-form textarea {
+    resize: vertical;
+    min-height: 100px;
 }
 
-table th {
-    background-color: #1b1f3a; /* Dark blue header background */
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Light alternate rows */
-}
-
-table tr:nth-child(odd) {
-    background-color: #e5e5e5; /* Slightly darker alternate rows */
-}
-
-table tr:hover {
-    background-color: #007bff; /* Blue hover effect */
-    color: white; /* White text on hover */
-}
-
-table td a {
-    color: #ff9800; /* Orange link text */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-table td a:hover {
-    text-decoration: underline;
-}
-
-/* Highlight row effect */
-tr.highlight {
-    background-color: #ff9800;
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-/* Updated Footer Styling */
-footer {
-    background-color: #1b1f3a;
-    color: #ccc;
-    padding: 20px 0;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Shadow effect to separate footer */
-}
-
-footer .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px;
-    color: #ddd;
-}
-
-footer .social-media {
-    margin-top: 10px;
-}
-
-footer .social-media a {
-    color: #ff9800;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer .social-media a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    .profile-image {
-        margin-bottom: 10px;
-    }
-    .text-content h1 {
-        font-size: 22px;
-    }
-    .text-content p {
-        font-size: 14px;
-    }
-}
-
-/* Text Styling for Topics */
-.topic-title {
-    color: #1b1f3a; /* Dark blue for the topic title */
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-.topic-description {
-    color: #333; /* Dark text for description */
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-.topic-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0;
-    margin: 0;
-}
-
-.topic-list li {
-    font-size: 16px;
-    color: #4caf50; /* Green for list items */
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.topic-list li::before {
-    content: '\2022'; /* Bullet point */
-    color: #ff9800; /* Orange bullet point */
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: 2px;
-}
-
-.topic-highlight {
-    background-color: #f9f9f9; /* Light background for highlighted text */
-    border-left: 5px solid #007bff; /* Blue border on the left */
+#register-form select {
     padding: 10px;
-    margin-bottom: 20px;
     font-size: 16px;
-    color: #1b1f3a; /* Dark blue text */
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.topic-note {
-    background-color: #ffeb3b; /* Yellow background for notes */
-    color: #1b1f3a; /* Dark text */
-    padding: 10px;
-    font-style: italic;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.topic-action {
-    background-color: #007bff; /* Blue background for actions */
-    color: white; /* White text */
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.topic-action:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-
-/* Default Paragraph Styling */
-p {
-    font-size: 16px; /* Set a readable font size */
-    line-height: 1.6; /* Increase line height for readability */
-    color: #333; /* Dark text color */
-    margin-bottom: 15px; /* Add space after the paragraph */
-    text-align: justify; /* Justify text for a neat look */
-}
-
-/* Styled Paragraph for Emphasis */
-p.emphasized {
-    font-size: 18px; /* Slightly larger text */
-    color: #007bff; /* Blue color for emphasis */
-    font-weight: bold; /* Bold text */
-    margin-bottom: 20px;
-}
-
-/* Paragraph with a Background */
-p.background {
-    background-color: #f4f4f4; /* Light gray background */
-    padding: 15px; /* Add padding around the text */
-    border-radius: 5px; /* Rounded corners */
-    color: #1b1f3a; /* Dark text for contrast */
-}
-
-/* Paragraph with a Border */
-p.bordered {
-    border: 2px solid #007bff; /* Blue border */
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #333;
-    border-radius: 4px; /* Rounded corners */
-}
-
-/* Paragraph for Notes or Important Information */
-p.note {
-    background-color: #fff3cd; /* Light yellow background for notes */
-    color: #856404; /* Dark yellow text */
-    font-style: italic; /* Italicized text */
-    padding: 12px;
-    border-left: 5px solid #ffeeba; /* Light border on the left */
-    margin-bottom: 20px;
-}
-
-/* Paragraph for Quotes */
-p.quote {
-    font-size: 18px;
-    font-style: italic; /* Italicized text for quotes */
-    color: #555; /* Slightly lighter text color */
-    margin-bottom: 25px;
-    padding-left: 20px; /* Indentation for the quote */
-    border-left: 3px solid #007bff; /* Blue left border */
-}
-
-/* Paragraph for Call to Action (CTA) */
-p.cta {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff; /* White text */
-    background-color: #007bff; /* Blue background */
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Responsive Design for Paragraphs */
-@media (max-width: 768px) {
-    p {
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    p.cta {
-        font-size: 16px; /* Ensure CTA text is legible on smaller screens */
-    }
+#register-form select:focus {
+    border-color: #007bff;
+    outline: none;
 }

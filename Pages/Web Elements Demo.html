@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Psudo</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".tab-link").click(function() {
+                var targetTab = $(this).attr("data-tab");
+                // Hide all tabs
+                $(".tab-content").hide();
+
+                // Show the clicked tab's content
+                $("#" + targetTab).show();
+
+                // Remove 'active' class from all tab links and add to the clicked one
+                $(".tab-link").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            // Default active tab
+            $("#login-tab").show();
+            $(".tab-link").first().addClass("active");
+        });
+		$(document).ready(function() {
+                    console.log('Document ready event triggered');
+                    $('#header-container').load('header.htm', function(response, status, xhr) {
+                        if (status == 'error') {
+                            console.log('Error loading header: ' + xhr.status + ' ' + xhr.statusText);
+                        }
+                    });
+
+                    // Load the footer
+                    $('#footer-container').load('footer.htm', function(response, status, xhr) {
+                        if (status == 'error') {
+                            console.log('Error loading footer: ' + xhr.status + ' ' + xhr.statusText);
+                        }
+                    });
+
+                    // Handle form submission
+                    $('#login-form').submit(function(e) {
+                        e.preventDefault();  // Prevent the form from submitting normally
+
+                        // Get the entered values
+                        const username = $('#username').val();
+                        const password = $('#password').val();
+
+                        // Check the credentials
+                        if (username === 'admin' && password === 'admin') {
+                            $('#login-message').text('Login successful!').css('color', 'green');
+                        } else {
+                            $('#login-message').text('Invalid username or password. Please try again.').css('color', 'red');
+                        }
+                    });
+                });
+		
+    </script>
+</head>
+<body>
+    <div id="header-container"></div> <!-- Placeholder for header -->
+    <main class="container">
+        <section class="intro">
+            <h2>Login & Register</h2>
+            <p class="background">
+                To use this page, you can either log in with your credentials or register for a new account.
+            </p>
+			<h2>Selenium Topics</h2>
+                <h4 class="topic-highlight">Login, Buttons, Input, Label Verification</h4>
+        </section>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-link active" data-tab="login-tab">Login</button>
+            <button class="tab-link" data-tab="register-tab">Register</button>
+        </div>
+
+        <!-- Tab Content: Login -->
+        <div id="login-tab" class="tab-content">
+            <section class="drag-drop">
+				<h2>Login</h2>
+                <!-- Login Form -->
+                <div id="login-container">
+                    <form id="login-form">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required>
+                        <br>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        <br><br>
+                        <button type="submit">Login</button>
+                    </form>
+                    <!-- Message for login success/failure -->
+					<div id="login-message"></div>
+                    <p>Don't have an account? <a href="javascript:void(0);" class="tab-link" data-tab="register-tab">Register here</a></p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Content: Register -->
+		<div id="register-tab" class="tab-content" style="display:none;">
+			<section class="drag-drop">
+				<h2>Registration Form</h2>
+				<div id="login-container">
+					<form id="register-form">
+						<!-- Text Input: Username -->
+						<label for="reg-username">Username:</label>
+						<input type="text" id="reg-username" name="reg-username" placeholder="Enter username" required>
+						<br>
+
+						<!-- Text Input: Email -->
+						<label for="reg-email">Email:</label>
+						<input type="email" id="reg-email" name="reg-email" placeholder="Enter email" required>
+						<br>
+
+						<!-- Password Input: Password -->
+						<label for="reg-password">Password:</label>
+						<input type="password" id="reg-password" name="reg-password" required>
+						<br>
+
+						<!-- Password Input: Confirm Password -->
+						<label for="reg-confirm-password">Confirm Password:</label>
+						<input type="password" id="reg-confirm-password" name="reg-confirm-password" required>
+						<br>
+
+						<!-- Date Input -->
+						<label for="reg-dob">Date of Birth:</label>
+						<input type="date" id="reg-dob" name="reg-dob" required>
+						<br>
+
+						<!-- File Input -->
+						<label for="reg-file">Upload Resume:</label>
+						<input type="file" id="reg-file" name="reg-file">
+						<br>
+
+						<!-- Radio Buttons -->
+						<label>Gender:</label>
+						<input type="radio" id="male" name="gender" value="male">
+						<label for="male">Male</label>
+						<input type="radio" id="female" name="gender" value="female">
+						<label for="female">Female</label>
+						<br>
+
+						<!-- Checkboxes -->
+						<label for="newsletter">Subscribe to Newsletter:</label>
+						<input type="checkbox" id="newsletter" name="newsletter">
+						<br>
+
+						<!-- Dropdown Select -->
+						<label for="country">Country:</label>
+						<select id="country" name="country">
+							<option value="usa">USA</option>
+							<option value="canada">Canada</option>
+							<option value="india">India</option>
+						</select>
+						<br>
+
+						<!-- Textarea -->
+						<label for="reg-bio">Short Bio:</label>
+						<textarea id="reg-bio" name="reg-bio" rows="4" placeholder="Tell us something about yourself"></textarea>
+						<br>
+
+						<!-- Submit Button -->
+						<button type="submit">Register</button>
+					</form>
+				</div>
+			</section>
+		</div>
+    </main>
+
+    <div id="footer-container"></div> <!-- Placeholder for footer -->
+</body>
+</html>
