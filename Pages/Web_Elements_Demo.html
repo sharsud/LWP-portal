@@ -136,17 +136,16 @@
 						<br>
 
 						<!-- Radio Buttons -->
-						<label>Gender:</label>
-						<input type="radio" id="male" name="gender" value="male">
-						<label for="male">Male</label>
-						<input type="radio" id="female" name="gender" value="female">
-						<label for="female">Female</label>
+						<label>Gender:</label>						
+						<label class="radio-label">
+						  <input type="radio" id="male" name="gender" value="male"> Male
+						</label>
+						<label class="radio-label">
+						  <input type="radio" id="female" name="gender" value="female"> Female
+						</label>
 						<br>
 
-						<!-- Checkboxes -->
-						<label for="newsletter">Subscribe to Newsletter:</label>
-						<input type="checkbox" id="newsletter" name="newsletter">
-						<br>
+						
 
 						<!-- Dropdown Select -->
 						<label for="country">Country:</label>
@@ -162,6 +161,18 @@
 						<textarea id="reg-bio" name="reg-bio" rows="4" placeholder="Tell us something about yourself"></textarea>
 						<br>
 
+						<!-- Checkboxes -->
+						<label for="newsletter">Select the type of user access:</Label>
+						<label class="chkbox-label">
+						<input type="checkbox" id="admin" name="admin"> Admin</label>
+						<label class="chkbox-label">
+						<input type="checkbox" id="Guest" name="Guest"> Guest</label>
+						<label class="chkbox-label">
+						<input type="checkbox" id="EndUser" name="EndUser"> EndUser</label>
+						<label class="chkbox-label">
+						<input type="checkbox" id="Dev" name="Dev"> Developer</label>
+						<br>
+						
 						<!-- Submit Button -->
 						<button type="submit">Register</button>
 					</form>

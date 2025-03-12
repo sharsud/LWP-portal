@@ -166,6 +166,16 @@ h2 {
 #register-form input[type="checkbox"]:checked {
     background-color: #007bff;
 }
+/* Styling for Radio Buttons and Labels on the Same Line */
+#register-form label.radio-label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#register-form input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle; /* Ensures the radio button aligns vertically with the label text */
+}
 
 #register-form textarea {
     resize: vertical;
